@@ -257,14 +257,14 @@ export default {
       works: [
         {
           title: "Academic Admission",
-          img: "img/back.png",
+          img: "back.png",
           text: "Application and control of academic admission for the Adventist University Institute of Venezuela",
           btnUrl: "https://admision.iunav.com/?#/",
           info: " Web system, developed on the Front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is to collect the information of the applicants and help them to carry out their admission process, from the delivery of documents, payments, presentation of tests (psychotechnical, knowledge, etc), contact with coordinators or any department of the institute until the approval or denial of the request. It has automatic and personalized email sending, lists and forms for displaying the necessary information, as well as automatic pdf for spreadsheets and others. It is currently in use by the Adventist University Institute of Venezuela",
         },
         {
           title: "Production control",
-          img: "img/two.png",
+          img: "two.png",
           text: "Inventory control application for Organizations-Food in Rio de Janeiro-Brazil",
           btnUrl: "http://sistemas-agricultura-go.es/#/login",
           info: "Web system, developed on the front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is the control of inventories within Organizations-Food for counting food and carrying out its administrative control.  The system has lists, forms and pdf for the visualization of the necessary data",
