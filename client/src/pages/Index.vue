@@ -11,7 +11,7 @@
       <div class="text-center">
         <img
           alt="Quasar logo"
-          src="~assets/perfil.png"
+          src="~assets/neil.png"
           style="width: 200px; height: 200px; border-radius: 7em"
         />
       </div>
@@ -25,6 +25,7 @@
         />
       </div>
     </div>
+    <!--- Div con informacion personal-->
     <div
       style="background-color: #1976d2"
       class="col text-center q-pt-lg q-px-lg"
@@ -45,8 +46,13 @@
     </div>
     <!--Div flotador con las tecnologias que manejo-->
     <div
-      style="background-color: rgb(236, 236, 236); margin-top: -3em; border-radius: 5em"
-      class="col text-center q-pt-lg q-px-lg"
+      style="
+        background-color: rgb(236, 236, 236);
+        margin-top: -3em;
+        border-radius: 5em;
+        padding-bottom: 1em;
+      "
+      class="col text-center q-pt-lg q-px-lg shadow-1"
     >
       <div class="q-pt-lg q-px-lg">
         <div
@@ -58,7 +64,10 @@
           I'll explain a little what I do
         </div>
         <div class="row">
-          <div style="border-bottom: 0px solid #FFF;border-right: 1px solid #FFF;" class="col-xs-11 col-sm-4 col-md-4">
+          <div
+            style="border-bottom: 0px solid #fff; border-right: 1px solid #fff"
+            class="col-xs-11 col-sm-4 col-md-4"
+          >
             <div class="text-center text-bold text-h5">
               <div class="text-center q-pt-lg q-px-lg">
                 <img
@@ -88,12 +97,15 @@
               {{ index }}
             </div>
           </div>
-          <div style="border-bottom: 0px solid #FFF;border-right: 1px solid #FFF;" class="col-xs-11 col-sm-4 col-md-4">
+          <div
+            style="border-bottom: 0px solid #fff; border-right: 1px solid #fff"
+            class="col-xs-11 col-sm-4 col-md-4"
+          >
             <div class="text-center text-bold text-h5">
               <div class="text-center q-pt-lg q-px-lg">
                 <img
                   alt="Quasar logo"
-                  src="~assets/back.png"
+                  src="~assets/yuna.png"
                   style="width: 70px; height: 70px"
                 />
               </div>
@@ -146,22 +158,70 @@
         </div>
       </div>
     </div>
-    <div
-      class="col text-center q-pt-lg q-px-lg"
-    >
+    <div class="col text-center q-pt-lg q-px-lg">
       <div class="q-pt-lg q-px-lg">
-        <div class="tq-pt-md q-pa-md text-h4 text-center text-bold">
-          Hi, I'm Steven. Nice to meet you
+        <div class="q-pt-md q-pa-md text-h4 text-center text-bold">
+          My Recent Work
         </div>
         <div class="q-pt-md q-pa-xl text-center">
-          Since I started my adventure as a freelance web developer almost 3
-          years ago, I have worked remotely for agencies, personal entities and
-          collaborated with talented people to create digital products for
-          commercial use and personal consumption. I am quietly confident,
-          naturally curious and perpetually work to improve my skills, to
-          provide the best user experience
+          Here are some apps I've recently worked on
         </div>
       </div>
+    </div>
+    <!--Papa tarjetas de los projects-->
+    <div
+      style="margin-top: -3em; padding-bottom: 1em;"
+      class="text-center q-pt-lg q-px-lg"
+    >
+      <div class="row items-center justify-center">
+        <div
+          v-for="info in works"
+          :key="info.name"
+          class="col-xs-9 col-sm-4 col-md-4"
+        >
+          <vs-card style="padding-left: 1em;padding-top: 1em;" class="text-bold" type="2">
+            <template #title>
+              <h3>{{ info.title }}</h3>
+            </template>
+            <template #img>
+              <img :src="`${info.img}`" alt="" />
+            </template>
+            <template #text>
+              <p>{{ info.text }}</p>
+            </template>
+            <template #interactions>
+              <vs-button @click="showsInfo(info)" rounded>
+                <q-icon name="info"></q-icon>
+              </vs-button>
+              <a :href="info.btnUrl" target="_blank">
+                <vs-button
+                  class="btn-chat bg-secondary text-black"
+                  shadow
+                  primary
+                >
+                  Visit website
+                  <q-icon style="margin-left: 0.5em" name="done" />
+                </vs-button>
+              </a>
+            </template>
+          </vs-card>
+        </div>
+      </div>
+      <vs-dialog prevent-close v-model="band">
+        <template #header>
+          <h4 class="not-margin">{{ copyInfo.title }}</h4>
+        </template>
+
+        <div class="con-form">
+          <p class="text-center text-justify">{{copyInfo.info}}</p>
+        </div>
+
+        <template #footer>
+          <div class="footer-dialog">
+            <vs-button @click="band = false"> Close </vs-button>
+          </div>
+        </template>
+      </vs-dialog>
     </div>
   </q-page>
 </template>
@@ -171,6 +231,8 @@ export default {
   name: "PageIndex",
   data() {
     return {
+      band: false,
+      copyInfo: {},
       devTools: [
         "Visual Studio Code",
         "Bitbucket",
@@ -192,7 +254,36 @@ export default {
         "Terminal",
       ],
       bdTools: ["MySQL", "Oracle Database", "PostgreSQL", "MongoDB"],
+      works: [
+        {
+          title: "Academic Admission",
+          img: "img/back.png",
+          text: "Application and control of academic admission for the Adventist University Institute of Venezuela",
+          btnUrl: "https://admision.iunav.com/?#/",
+          info: " Web system, developed on the Front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is to collect the information of the applicants and help them to carry out their admission process, from the delivery of documents, payments, presentation of tests (psychotechnical, knowledge, etc), contact with coordinators or any department of the institute until the approval or denial of the request. It has automatic and personalized email sending, lists and forms for displaying the necessary information, as well as automatic pdf for spreadsheets and others. It is currently in use by the Adventist University Institute of Venezuela",
+        },
+        {
+          title: "Production control",
+          img: "img/perfil.png",
+          text: "Inventory control application for Organizations-Food in Rio de Janeiro-Brazil",
+          btnUrl: "http://sistemas-agricultura-go.es/#/login",
+          info: "Web system, developed on the front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is the control of inventories within Organizations-Food for counting food and carrying out its administrative control.  The system has lists, forms and pdf for the visualization of the necessary data",
+        },
+      ],
     };
+  },
+  methods: {
+    async showsInfo(info) {
+      this.copyInfo = info;
+      this.band = true;
+    },
   },
 };
 </script>
+<style lang="sass">
+.vs-button
+  font-size: 12pt
+
+.a
+  text-decoration: none
+</style>

@@ -1,12 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <vs-navbar style="margin: 2em 0em 0em 0em;padding: 1em;" center-collapsed v-model="active">
+    <vs-navbar style="margin: 2em 0em 0em 0em;padding: 1em;" center-collapsed>
       <template #left>
         <img style="width:3em" src="../assets/web.png" alt="" />
       </template>
       <template #right>
         <vs-button style="font-size: 11pt;" flat success animation-type="vertical">
-          Mentorship
+          {{$t('Mentorship')}}
           <template #animate> <q-icon name="developer_mode"/>Go </template>
         </vs-button>
         <vs-button style="font-size: 11pt;" gradient warn>Say hello</vs-button>
@@ -25,8 +25,10 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData,
     };
+  },
+  mounted() {
+    this.$i18n.locale = 'es';
   },
 };
 </script>
