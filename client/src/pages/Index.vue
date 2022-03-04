@@ -264,7 +264,7 @@ export default {
         },
         {
           title: "Production control",
-          img: "img/perfil.png",
+          img: "img/two.png",
           text: "Inventory control application for Organizations-Food in Rio de Janeiro-Brazil",
           btnUrl: "http://sistemas-agricultura-go.es/#/login",
           info: "Web system, developed on the front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is the control of inventories within Organizations-Food for counting food and carrying out its administrative control.  The system has lists, forms and pdf for the visualization of the necessary data",
