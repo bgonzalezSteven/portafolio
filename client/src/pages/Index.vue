@@ -208,7 +208,7 @@
                   primary
                   v-if="info.btnUrl"
                 >
-                  Visit website
+                  {{$q.platform.is.mobile ? 'Website' : 'Visit website'}}
                   <q-icon style="margin-left: 0.5em" name="done" />
                 </vs-button>
               </a>
@@ -240,7 +240,7 @@
         <div class="box bg-secondary shadow-1">
           <div class="columns level">
             <div class="column level-item">
-              <h2 class="text-bold">Let's start a project</h2>
+              <h3 class="text-bold">Let's start a project</h3>
             </div>
             <div class="columns level-item">
               <p>Interested in a project? we should chat for a bit</p>
