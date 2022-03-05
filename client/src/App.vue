@@ -8,12 +8,13 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
+import 'boxicons'
 
 Vue.use(VueI18n) // Internationalization
 Vue.use(Vuesax, {
   colors: {
       primary:'#1976D2',
-      success:'#26A69A',
+      success:'#fff',
       danger:'rgb(242, 19, 93)',
       warning:'rgb(255, 130, 0)',
       dark:'rgb(36, 33, 69)'

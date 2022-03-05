@@ -5,8 +5,8 @@
         <img style="width:3em" src="../assets/web.png" alt="" />
       </template>
       <template #right>
-        <vs-button style="font-size: 11pt;" flat success animation-type="vertical">
-          {{$t('Mentorship')}}
+        <vs-button style="font-size: 11pt;" flat class="bg-secondary text-white" animation-type="vertical">
+         Mentorship
           <template #animate> <q-icon name="developer_mode"/>Go </template>
         </vs-button>
         <vs-button style="font-size: 11pt;" gradient warn>Say hello</vs-button>
@@ -34,14 +34,14 @@ export default {
 </script>
 <style>
 .q-layout {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "eurostile", sans-serif;
 }
 .q-page {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "eurostile", sans-serif;
   margin-top: 10em;
 }
 .q-menu {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "eurostile", sans-serif;
 }
 .fixed, .fixed-full, .fullscreen, .fixed-center, .fixed-bottom, .fixed-left, .fixed-right, .fixed-top, .fixed-top-left, .fixed-top-right, .fixed-bottom-left, .fixed-bottom-right {
   position: absolute;

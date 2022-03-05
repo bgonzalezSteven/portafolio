@@ -65,7 +65,7 @@
         </div>
         <div class="row">
           <div
-            style="border-bottom: 0px solid #fff; border-right: 1px solid #fff"
+            :style="$q.platform.is.mobile ? '' : 'border-bottom: 0px solid #fff; border-right: 1px solid #fff'"
             class="col-xs-11 col-sm-4 col-md-4"
           >
             <div class="text-center text-bold text-h5">
@@ -98,7 +98,7 @@
             </div>
           </div>
           <div
-            style="border-bottom: 0px solid #fff; border-right: 1px solid #fff"
+            :style="$q.platform.is.mobile ? '' : 'border-bottom: 0px solid #fff; border-right: 1px solid #fff'"
             class="col-xs-11 col-sm-4 col-md-4"
           >
             <div class="text-center text-bold text-h5">
@@ -164,22 +164,26 @@
           My Recent Work
         </div>
         <div class="q-pt-md q-pa-xl text-center">
-          Here are some apps I've recently worked on
+          Here are some apps I've recently worked on, my startup projects
         </div>
       </div>
     </div>
     <!--Papa tarjetas de los projects-->
     <div
-      style="margin-top: -3em; padding-bottom: 1em;"
+      style="margin-top: -3em; padding-bottom: 15em"
       class="text-center q-pt-lg q-px-lg"
     >
-      <div class="row items-center justify-center">
+      <div class="row items-center justify-center columns is-multiline is-mobile">
         <div
           v-for="info in works"
           :key="info.name"
-          class="col-xs-9 col-sm-4 col-md-4"
+          class="col-xs-7 col-sm-6 col-md-4"
         >
-          <vs-card style="padding-left: 1em;padding-top: 1em;" class="text-bold" type="2">
+          <vs-card
+            style="padding-left: 1em; padding-top: 1em;"
+            class="text-bold"
+            type="2"
+          >
             <template #title>
               <h3>{{ info.title }}</h3>
             </template>
@@ -193,11 +197,16 @@
               <vs-button @click="showsInfo(info)" rounded>
                 <q-icon name="info"></q-icon>
               </vs-button>
-              <a :href="info.btnUrl" target="_blank">
+              <a
+                style="text-decoration: none"
+                :href="info.btnUrl"
+                target="_blank"
+              >
                 <vs-button
                   class="btn-chat bg-secondary text-black"
                   shadow
                   primary
+                  v-if="info.btnUrl"
                 >
                   Visit website
                   <q-icon style="margin-left: 0.5em" name="done" />
@@ -213,7 +222,7 @@
         </template>
 
         <div class="con-form">
-          <p class="text-center text-justify">{{copyInfo.info}}</p>
+          <p class="text-center text-justify">{{ copyInfo.info }}</p>
         </div>
 
         <template #footer>
@@ -223,6 +232,55 @@
         </template>
       </vs-dialog>
     </div>
+
+    <section
+      class="bg-primary section call-to-action is-primary has-text-centered"
+    >
+      <div class="container is-narrow">
+        <div class="box bg-secondary shadow-1">
+          <div class="columns level">
+            <div class="column level-item">
+              <h2 class="text-bold">Let's start a project</h2>
+            </div>
+            <div class="columns level-item">
+              <p>Interested in a project? we should chat for a bit</p>
+            </div>
+            <div class="columns level-item">
+              <vs-button
+                flat
+                rounded
+                animation-type="vertical"
+                class="bg-white text-black"
+              >
+                Message
+                <template #animate> <q-icon name="email" /> Send </template>
+              </vs-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="section is-primary is-small has-text-centered bg-primary">
+      <div class="container is-narrow">
+        <div class="text-center q-pt-lg q-px-lg">
+          <img
+            alt="Img logo"
+            src="https://drive.google.com/uc?id=1tJCPjdp0ieJoVliydp5ppvWCDMOqi22E"
+            style="width: 200px; height: 200px"
+          />
+        </div>
+        <div class="row q-pa-md items-center justify-center">
+          <h5>Living, learning and raising the bar one day at a time.</h5>
+        </div>
+        <div class="q-pa-md row item-center justify-center">
+          <div v-for="btn in btns" :key="btn.name">
+            <vs-button circle border dark class="bg-white">
+              <box-icon type="logo" :name="btn.name" />
+            </vs-button>
+          </div>
+        </div>
+      </div>
+    </footer>
   </q-page>
 </template>
 
@@ -269,6 +327,26 @@ export default {
           btnUrl: "http://sistemas-agricultura-go.es/#/login",
           info: "Web system, developed on the front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Nodejs (Adonisjs) and manages a NoSql Database (MongoDB). The main function of the system is the control of inventories within Organizations-Food for counting food and carrying out its administrative control.  The system has lists, forms and pdf for the visualization of the necessary data",
         },
+        {
+          title: "Corporación Visual Sucre C.A",
+          img: "https://gitlab.com/bgonzales.wx/telecorp/-/raw/dev/client/src/assets/HomeTv.gif",
+          text: "Multiplatform system for cable television company control",
+          info: "Multi-platform system, developed on the Front-end side with Vue Js (Quasar and Vuesax), on the Back-end side with Php (Laravel 7) and manages a MySQL Database (PostgreSQl). The main function of the system is inventory control within Corporacion Visual Sucre CA for the registration of its teleclients, monthly charges of debt generated according to the plan per client, the creation of modules for employees (Collectors and Technicians) to know their work daily according to collection or pending work. The system has lists, forms and pdf for the visualization of the necessary data, as well as connection in immediate time for communication between the departments.",
+        },
+      ],
+      btns: [
+        {
+          name: "facebook",
+        },
+        {
+          name: "linkedin",
+        },
+        {
+          name: "whatsapp",
+        },
+        {
+          name: "gmail",
+        },
       ],
     };
   },
@@ -283,7 +361,98 @@ export default {
 <style lang="sass">
 .vs-button
   font-size: 12pt
+.section.is-primary
+  color: #fff
+.section
+  padding: 5rem 1.5rem
 
-.a
-  text-decoration: none
+.section
+  padding: 3rem 1.5rem
+
+.has-text-centered
+  text-align: center !important
+
+.container.is-narrow
+  max-width: 1200px
+
+.container
+  -webkit-box-flex: 1
+  flex-grow: 1
+  margin: 0 auto
+  position: relative
+  width: auto
+
+*, ::before, ::after
+  box-sizing: inherit
+
+.section.is-primary
+  color: #fff
+
+.has-text-centered
+  text-align: center !important
+
+.section.call-to-action .box
+  padding: 3.5rem 2rem
+  margin-top: -14rem
+
+.box
+  border-radius: 12px
+
+.box
+  background-color: white
+  border-radius: 6px
+  display: block
+  padding: 1.25rem
+
+  .columns:last-child
+    margin-bottom: -0.75rem
+
+.columns
+  margin-left: -0.75rem
+  margin-right: -0.75rem
+  margin-top: -0.75rem
+
+.level
+  -webkit-box-align: center
+  align-items: center
+  -webkit-box-pack: justify
+  justify-content: space-between
+
+.level-item:not(:last-child)
+  margin-bottom: 0.75rem
+
+.column
+  display: block
+  flex-basis: 0
+  -webkit-box-flex: 1
+  flex-grow: 1
+  flex-shrink: 1
+  padding: 0.75rem
+
+.level-item
+  -webkit-box-align: center
+  align-items: center
+  display: -webkit-box
+  display: flex
+  flex-basis: auto
+  -webkit-box-flex: 0
+  flex-grow: 0
+  flex-shrink: 0
+  -webkit-box-pack: center
+  justify-content: center
+
+.columns.is-multiline 
+  flex-wrap: wrap
+
+.columns.is-mobile 
+  display: -webkit-box
+  display: flex
+
+.columns:last-child 
+  margin-bottom: -0.75rem
+
+.vs-card
+  max-width: 100%
+  max-height: 100%
+
 </style>
