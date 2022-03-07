@@ -4,12 +4,13 @@
       <template #left>
         <img style="width:3em" src="../assets/cere.png" alt="" />
       </template>
-      <template #right>
+      <template #right>        
+        <a href="mailto:bgonzales.wx@gmail.com?Subject=¡Hola!%20Saludos,%20ví%20tu%20Web" target="_blank" style="text-decoration: none">
         <vs-button style="font-size: 11pt;" flat class="bg-secondary text-white" animation-type="vertical">
-         Mentorship
-          <template #animate> <q-icon name="developer_mode"/>Go </template>
+         Say hello
+          <template #animate> <q-icon name="mail"/>Go </template>
         </vs-button>
-        <vs-button style="font-size: 11pt;" gradient class="bg-primary">Say hello</vs-button>
+        </a>
       </template>
     </vs-navbar>
 
