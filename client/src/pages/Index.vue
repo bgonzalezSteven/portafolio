@@ -8,11 +8,11 @@
         I design and code and develop systems and websites on a small and large
         scale, making your job a simple task
       </div>
-      <div class="text-center">
+      <div class="text-center" style="padding-top: 5em">
         <img
           alt="Quasar logo"
           src="~assets/neil.png"
-          style="width: 200px; height: 200px; border-radius: 7em"
+          style="width: 250px; height: 250px; border-radius: 10em"
         />
       </div>
     </div>
@@ -20,17 +20,17 @@
       <div class="text-center q-pt-lg q-px-lg">
         <img
           alt="Quasar logo"
-          src="~assets/fondo2.png"
+          src="~assets/ux.png"
           style="width: 200px; height: 200px"
         />
       </div>
     </div>
     <!--- Div con informacion personal-->
     <div
-      style="background-color: #1976d2"
-      class="col text-center q-pt-lg q-px-lg"
+      style="margin-top: -0.7em"
+      class="col text-center q-pt-lg q-px-lg bg-primary"
     >
-      <div class="q-pt-lg q-px-lg">
+      <div class="q-pt-lg q-px-lg" style="padding: 5rem 1.5rem">
         <div class="tq-pt-md q-pa-md text-h4 text-center text-white text-bold">
           Hi, I'm Steven. Nice to meet you
         </div>
@@ -47,12 +47,15 @@
     <!--Div flotador con las tecnologias que manejo-->
     <div
       style="
-        background-color: rgb(236, 236, 236);
+        background-color: #fff;
         margin-top: -3em;
-        border-radius: 5em;
+        border-radius: 12px;
         padding-bottom: 1em;
+        margin-right: 1em;
+        margin-left: 1em;
+        border: 1px solid #e6ecf8;
       "
-      class="col text-center q-pt-lg q-px-lg shadow-1"
+      class="text- shadow-1 items-center justify-center"
     >
       <div class="q-pt-lg q-px-lg">
         <div
@@ -65,7 +68,7 @@
         </div>
         <div class="row">
           <div
-            :style="$q.platform.is.mobile ? '' : 'border-bottom: 0px solid #fff; border-right: 1px solid #fff'"
+            :style="$q.platform.is.mobile ? '' : 'border-right: 1px solid #E6ECF8'"
             class="col-xs-11 col-sm-4 col-md-4"
           >
             <div class="text-center text-bold text-h5">
@@ -98,7 +101,11 @@
             </div>
           </div>
           <div
-            :style="$q.platform.is.mobile ? '' : 'border-bottom: 0px solid #fff; border-right: 1px solid #fff'"
+            :style="
+              $q.platform.is.mobile
+                ? ''
+                : 'border-bottom: 0px solid #E6ECF8; border-right: 1px solid #E6ECF8'
+            "
             class="col-xs-11 col-sm-4 col-md-4"
           >
             <div class="text-center text-bold text-h5">
@@ -173,14 +180,16 @@
       style="margin-top: -3em; padding-bottom: 15em"
       class="text-center q-pt-lg q-px-lg"
     >
-      <div class="row items-center justify-center columns is-multiline is-mobile">
+      <div
+        class="row items-center justify-center columns is-multiline is-mobile"
+      >
         <div
           v-for="info in works"
           :key="info.name"
           class="col-xs-7 col-sm-6 col-md-4"
         >
           <vs-card
-            style="padding-left: 1em; padding-top: 1em;"
+            style="padding-left: 1em; padding-top: 1em"
             class="text-bold"
             type="2"
           >
@@ -208,7 +217,7 @@
                   primary
                   v-if="info.btnUrl"
                 >
-                  {{$q.platform.is.mobile ? 'Website' : 'Visit website'}}
+                  {{ $q.platform.is.mobile ? "Website" : "Visit website" }}
                   <q-icon style="margin-left: 0.5em" name="done" />
                 </vs-button>
               </a>
@@ -274,9 +283,11 @@
         </div>
         <div class="q-pa-md row item-center justify-center">
           <div v-for="btn in btns" :key="btn.name">
-            <vs-button circle border dark class="bg-white">
-              <box-icon type="logo" :name="btn.name" />
-            </vs-button>
+            <a :href="btn.url" target="_blank">
+              <vs-button circle border dark class="bg-white">
+                <box-icon type="logo" :name="btn.name" />
+              </vs-button>
+            </a>
           </div>
         </div>
       </div>
@@ -337,15 +348,19 @@ export default {
       btns: [
         {
           name: "facebook",
+          url: 'https://www.facebook.com/baironstiven.gonzalezgarcia/',
         },
         {
           name: "linkedin",
+          url: 'https://www.linkedin.com/in/bairon-steven-gonzalez-garcia-a24774190',
         },
         {
           name: "whatsapp",
+          url: 'https://api.whatsapp.com/send?phone=34651944417'
         },
         {
           name: "gmail",
+          url: 'mailto:bgonzales.wx@gmail.com?Subject=Interesado%20en%20un%20trabajo'
         },
       ],
     };
@@ -441,18 +456,17 @@ export default {
   -webkit-box-pack: center
   justify-content: center
 
-.columns.is-multiline 
+.columns.is-multiline
   flex-wrap: wrap
 
-.columns.is-mobile 
+.columns.is-mobile
   display: -webkit-box
   display: flex
 
-.columns:last-child 
+.columns:last-child
   margin-bottom: -0.75rem
 
 .vs-card
   max-width: 100%
   max-height: 100%
-
 </style>

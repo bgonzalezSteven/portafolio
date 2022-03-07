@@ -9,7 +9,7 @@
          Mentorship
           <template #animate> <q-icon name="developer_mode"/>Go </template>
         </vs-button>
-        <vs-button style="font-size: 11pt;" gradient warn>Say hello</vs-button>
+        <vs-button style="font-size: 11pt;" gradient class="bg-primary">Say hello</vs-button>
       </template>
     </vs-navbar>
 

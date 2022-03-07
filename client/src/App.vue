@@ -13,10 +13,10 @@ import 'boxicons'
 Vue.use(VueI18n) // Internationalization
 Vue.use(Vuesax, {
   colors: {
-      primary:'#1976D2',
+      primary:'#005f73',
       success:'#fff',
       danger:'rgb(242, 19, 93)',
-      warning:'rgb(255, 130, 0)',
+      warning:'#94d2bd',
       dark:'rgb(36, 33, 69)'
     }
 })
