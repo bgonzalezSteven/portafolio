@@ -274,8 +274,8 @@
         <div class="text-center q-pt-lg q-px-lg">
           <img
             alt="Img logo"
-            src="https://drive.google.com/uc?id=1tJCPjdp0ieJoVliydp5ppvWCDMOqi22E"
-            style="width: 200px; height: 200px"
+            src="~assets/logo.png"
+            style="width: 250px; height: 250px"
           />
         </div>
         <div class="row q-pa-md items-center justify-center">

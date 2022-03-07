@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <vs-navbar style="margin: 2em 0em 0em 0em;padding: 1em;" center-collapsed>
       <template #left>
-        <img style="width:3em" src="../assets/web.png" alt="" />
+        <img style="width:3em" src="../assets/cere.png" alt="" />
       </template>
       <template #right>
         <vs-button style="font-size: 11pt;" flat class="bg-secondary text-white" animation-type="vertical">
